@@ -19,7 +19,6 @@ router.get('/profile/:id', async (req, res) =>{
 //create a Team
 router.post('/', async (req, res) => {
     let team = await TeamModel.create(req.body);
-    console.log('in post',team,req.body)
     res.json({ team });
 });
 
@@ -41,4 +40,23 @@ router.delete('/:id', async (req, res) => {
         message: `Team with id ${req.params.id} deleted`
     })
 })
+
+//create a player
+router.post('/:id/players', async (req, res) => {
+    let player = await PlayerModel.create(req.body);
+    let team = await TeamModel.findByPk(req.params.id, {
+        include: PlayerModel
+    });
+    res.json({ team });
+})
+
+//delete a player
+router.delete('/:teamId/players/:id', async (req, res) => {
+    let player = await PlayerModel.destroy({
+        where: {id: req.params.id},
+    })
+    console.log('in del player ',req.params.id, player)
+    res.json({message: `Player with id ${req.params.id} deleted`})
+})
+
 module.exports = router;
