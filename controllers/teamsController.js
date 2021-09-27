@@ -4,21 +4,27 @@ const router = express.Router();
 const TeamModel = require('../models').Team;
 const PlayerModel = require('../models').Player;
 
-//get all Teams
-router.get('/', async (req, res) => {
-    let teams = await TeamModel.findAll();
-    res.json({ teams });
-});
-
 //get Team profile
 router.get('/profile/:id', async (req, res) =>{
-    let team = await TeamModel.findByPk(req.params.id);
+    let team = await TeamModel.findByPk(req.params.id, {
+        include: PlayerModel
+    });
     res.json(team);
+});
+
+//get all Teams
+router.get('/', async (req, res) => {
+    let teams = await TeamModel.findAll({include: PlayerModel})
+    res.json({ teams });
 });
 
 //create a Team
 router.post('/', async (req, res) => {
     let team = await TeamModel.create(req.body);
+    team.dataValues.Players = [];
+    // team = await TeamModel.findByPk(team.id, {
+    //     include: PlayerModel
+    // });
     res.json({ team });
 });
 
