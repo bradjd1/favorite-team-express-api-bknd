@@ -49,6 +49,7 @@ router.delete('/:id', async (req, res) => {
 
 //create a player
 router.post('/:id/players', async (req, res) => {
+    req.body.teamId = req.params.id
     let player = await PlayerModel.create(req.body);
     let team = await TeamModel.findByPk(req.params.id, {
         include: PlayerModel
