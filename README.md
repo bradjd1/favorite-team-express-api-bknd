@@ -1,60 +1,53 @@
-## Deere Project 4 Starter Code
+## Deere Project 4
 
-This app serves JSON data only. There are no views. You'll build a React app to communicate with this Express app. Since there are no views, you'll want to use Postman to test that your endpoints are working before writing the React code.
+This is the backend part of an applicaiton which will allow you to list your favorite baseball team(s) and player(s).  You can add or remove teams and players.  If a team has players, you will first need to remove all players before removing the team.
 
-Note - this app has no views and each endpoint is prefaced with `/api`.
+This is an Express application and serves JSON data only. There are no views. You can use Postman to test that the endpoints are working.  Each endpoint is prefaced with `/api`.
 
 ```js
-// server.js
+// server.js  Note: the auth and user routes were not implemented at this time.
 app.use("/api/auth", require("./controllers/authController.js"));
 app.use("/api/users", require("./controllers/usersController.js"));
+app.use("/api/teams", require("./controllers/teamsController.js"));
 ```
 
 ## Set Up
 
 1. Fork and clone this repo
 1. `cd` into the folder and run `npm install`
-1. In the root of your app, `touch .env` and add:
 
-   ```bash
-   PORT=3000
-   JWT_SECRET=pancakes
-   ```
-
-1. Check out your `config/config.json` file. You'll need to create a database called `project4_development` (or feel free to rename the database) in pgAdmin or from any directory in the Terminal:
+1. Check out your `config/config.json` file. You'll need to create a database called `favteam_devl` (or feel free to rename the database) in pgAdmin or from any directory in the Terminal:
 
    ```
-   createdb project4_development
+   createdb favteam_devl
    ```
 
-1. Sequelize is included in the app. You have a `User` model. Run `npx sequelize db:migrate` to create the `Users` table in your database.
+1. Sequelize is included in the app. You have `User`, `Team`, and `Player` models. The `User` model was not incorporated at this time.  Run `npx sequelize db:migrate` to create the tables in your database.
 
 1. Run `nodemon`.
 1. Open Postman to confirm that your app is working on `localhost:3000/`.
 
-![](https://i.imgur.com/VEkRBk9.png)
-
 <br>
 
-## Routes
+## USER STORIES
 
-You have the following routes available.
+- As a sports fan I want a way to list my favorite teams.
+- As a sports fan I want a way to add new teams to my favorites list.
+- As a team fan I want a way to list players on the team.
+- As a team fan I want a way to add players to the team.
 
-#### `server.js`
+## WIRE FRAMES:
 
-- GET `localhost:3000/`
 
-#### `controllers/authController.js`
+## TECHNOLOGIES USED
 
-- POST `localhost:3000/api/auth/signup`
-- POST `localhost:3000/api/auth/login`
-- GET `localhost:3000/api/auth/logout`
+- express:
+- Sequelize
+- Writing Code: Visual Studio Code
+- Test Code: Postman
+- Version Control: GitHub
+- Deployment: Heroku
 
-#### `controllers/usersController.js`
-
-- GET `localhost:3000/api/users/profile/:id`
-
-<br>
 
 ## To Deploy
 
