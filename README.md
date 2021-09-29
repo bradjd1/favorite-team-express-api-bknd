@@ -37,7 +37,7 @@ app.use("/api/teams", require("./controllers/teamsController.js"));
 - As a team fan I want a way to add players to the team.
 
 ## WIRE FRAMES:
-
+[`WIREFRAMES`](./planning/wireframes.png):
 
 ## TECHNOLOGIES USED
 
