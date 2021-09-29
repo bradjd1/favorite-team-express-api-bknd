@@ -38,6 +38,8 @@ app.use("/api/teams", require("./controllers/teamsController.js"));
 
 ## WIRE FRAMES:
 [`WIREFRAMES`](./planning/wireframes.png):
+![wireframe](./planning/wireframes.png)
+
 
 ## TECHNOLOGIES USED
 
