@@ -8,11 +8,11 @@ module.exports = {
     ]);
 
     let players = await queryInterface.bulkInsert("Players", [
-      { name: "Kyle Hendricks", teamId: 1 },
-      { name: "Frank Schwindel", teamId: 1 },
-      { name: "Wilson Contreras", teamId: 1 },
-      { name: "Tim Anderson", teamId: 2 },
-      { name: "Jose Abreu", teamId: 2 },
+      { name: "Kyle Hendricks", teamId: 1, position: "pitcher" },
+      { name: "Frank Schwindel", teamId: 1, position: "infielder" },
+      { name: "Wilson Contreras", teamId: 1, position: "infielder" },
+      { name: "Tim Anderson", teamId: 2, position: "infielder" },
+      { name: "Jose Abreu", teamId: 2, position: "infielder" },
     ]);
   },
 
