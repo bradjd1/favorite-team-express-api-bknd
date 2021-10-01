@@ -23,7 +23,9 @@ app.use("/api/teams", require("./controllers/teamsController.js"));
 
 - [backend github repo](https://github.com/bradjd1/favorite-team-express-api-bknd)
 - [frontend github repo](https://github.com/bradjd1/favorite-team-front-end)
-
+- [Heroku deployed back end](https://favorite-team-bkend.herokuapp.com/)
+- [Heroku deployed back end teams route](https://favorite-team-bkend.herokuapp.com/api/teams)
+- [Heroku deployed front end](https://favorite-team-frontend.herokuapp.com/)
 
 <br>
 
