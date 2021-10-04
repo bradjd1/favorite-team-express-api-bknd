@@ -41,6 +41,10 @@ app.use("/api/teams", require("./controllers/teamsController.js"));
 ![wireframe](./planning/wireframes.png)
 
 
+[`WIREFRAMES2`](./planning/wireframes2.png):
+![wireframes2](./planning/wireframes2.png)
+
+
 ## TECHNOLOGIES USED
 
 - Express:
@@ -55,6 +59,7 @@ app.use("/api/teams", require("./controllers/teamsController.js"));
 - Set up user routes
 - Set up authorization
 - When you choose to delete a team which has players, the application could delete all the players for you, then delete the team.
+- Add update capability to the teams and players pages so you don't have to delete and re-create to change/update information
 - Add a Player detail page
 - The original intent was to capture your favorite baseball teams and their players.  It could be used to capture your favorite teams from other sports as well.
 
