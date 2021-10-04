@@ -33,6 +33,17 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to the Favorite Teams App" });
 });
 
+app.use((req, res, next) => {
+  let logStr = `${req.method} ${req.url}`;
+
+  if (Object.keys(req.body).length !== 0) {
+    logStr += ` -- DATA: ${JSON.stringify(req.body)}`;
+  }
+
+  console.log(logStr);
+  next();
+});
+
 app.use("/api/auth", require("./controllers/authController.js"));
 app.use("/api/users", require("./controllers/usersController.js"));
 app.use("/api/teams", require("./controllers/teamsController.js"));
